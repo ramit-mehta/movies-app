@@ -1,13 +1,20 @@
 import "./App.css";
 import Movies from "./Components/Movies";
-import Navbar from "./Components/Navbar";
+import Favourites from "./Components/Favourites";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Movies />
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Movies />
+        </Route>
+        <Route exact path="/Favourites">
+          <Favourites />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
