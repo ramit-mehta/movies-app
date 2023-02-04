@@ -83,6 +83,7 @@ const DataContext = (props) => {
     movieArr: movieArr,
     cart: [],
   });
+  
   return (
     <myContext.Provider value={{ state, dispatch }}>
       {props.children}
