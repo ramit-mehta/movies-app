@@ -8,3 +8,6 @@
 .poster_height {
   height: 340px;
 }
+.z_index {
+  z-index: 99;
+}
