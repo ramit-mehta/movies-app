@@ -1,24 +1,27 @@
-import React, { useContext } from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import Navbar from "./Navbar";
-import { myContext } from "./DataContext";
-import ButtonClick from "./ButtonClick";
+import { CartState } from "./DataContext";
+// import ButtonClick from "./ButtonClick";
+import Button from "react-bootstrap/Button";
 
 const Movies = () => {
-  const getContext = useContext(myContext);
-
+  const {
+    state: { movieArr },
+    dispatch,
+  } = CartState();
   return (
     <>
       <Navbar />
       <section className="pt-5 bg-light">
         <div className="container">
           <div className="row mx-auto">
-            {getContext === "" ? (
+            {movieArr === "" ? (
               <div class="spinner-border" role="status">
                 <span class="visually-hidden">Loading...</span>
               </div>
             ) : (
-              getContext.map((get, index) => {
+              movieArr.map((get, index) => {
                 return (
                   <div key={index} className="col-lg-3 col-md-6 mb-5">
                     <Card className="w-100 bg-dark">
@@ -40,7 +43,17 @@ const Movies = () => {
                         <Card.Text className="text-light">
                           <em>{get.plot}</em>
                         </Card.Text>
-                        <ButtonClick get={get} />
+                        <Button
+                          onClick={() => {
+                            dispatch({
+                              type: "ADD_TO_FAV",
+                              payload: get,
+                            });
+                          }}
+                          className="btn btn-warning"
+                        >
+                          Add to favourites
+                        </Button>
                       </Card.Body>
                     </Card>
                   </div>

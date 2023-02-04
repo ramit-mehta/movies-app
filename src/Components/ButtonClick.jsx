@@ -1,18 +1,15 @@
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
+// import React from "react";
+// import Button from "react-bootstrap/Button";
 
-const ButtonClick = ({ get }) => {
-  const [select, setSelect] = useState();
+// const ButtonClick = ({ get }) => {
+//   const handleClick = () => {
+//     console.log(get);
+//   };
+//   return (
+//     <Button onClick={() => handleClick()} variant="warning">
+//       Add to favourites
+//     </Button>
+//   );
+// };
 
-  const handleClick = () => {
-    setSelect(get);
-  };
-  console.log(select);
-  return (
-    <Button onClick={() => handleClick()} variant="warning">
-      Add to favourites
-    </Button>
-  );
-};
-
-export default ButtonClick;
+// export default ButtonClick;
